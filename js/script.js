@@ -45,86 +45,53 @@ const translations = {
 // Current language
 let currentLang = 'en';
 
-// Eye tracking
+// Eye tracking (mouse only, smooth animation)
 const eye = document.querySelector('.eye');
 const iris = document.querySelector('.iris');
 
-// Guard in case elements are missing
 if (eye && iris) {
-  // Mouse handling (named so we can remove it if gyro is enabled)
-  const mouseMoveHandler = (e) => {
+  // Target values set by input
+  let targetX = 0;
+  let targetY = 0;
+
+  // Current displayed values (for smoothing)
+  let currentX = 0;
+  let currentY = 0;
+
+  const maxDistance = 15; // max px the iris can move from center
+  const smoothFactor = 0.14; // lerp factor (0-1), lower = smoother/slower
+
+  function updateTargetFromMouse(e) {
     const eyeRect = eye.getBoundingClientRect();
     const eyeCenterX = eyeRect.left + eyeRect.width / 2;
     const eyeCenterY = eyeRect.top + eyeRect.height / 2;
 
-    const angle = Math.atan2(e.clientY - eyeCenterY, e.clientX - eyeCenterX);
-    const distance = Math.min(15, Math.hypot(e.clientX - eyeCenterX, e.clientY - eyeCenterY) / 10);
+    const dx = e.clientX - eyeCenterX;
+    const dy = e.clientY - eyeCenterY;
 
-    const irisX = Math.cos(angle) * distance;
-    const irisY = Math.sin(angle) * distance;
+    const angle = Math.atan2(dy, dx);
+    const dist = Math.min(maxDistance, Math.hypot(dx, dy) / 10);
 
-    iris.style.transform = `translate(${irisX}px, ${irisY}px)`;
-  };
-
-  document.addEventListener('mousemove', mouseMoveHandler);
-
-  // Mobile gyroscope support
-  let gyroEnabled = false;
-  function handleDeviceOrientation(event) {
-    if (!eye || !iris) return;
-    const maxDistance = 15; // pixels
-
-    // gamma: left-to-right tilt [-90,90], beta: front-to-back tilt [-180,180]
-    const gamma = event.gamma || 0;
-    const beta = event.beta || 0;
-
-    // Sensitivity tuning: divide to get a smaller normalized range
-    const x = Math.max(-1, Math.min(1, gamma / 30));
-    const y = Math.max(-1, Math.min(1, beta / 30));
-
-    const irisX = x * maxDistance;
-    const irisY = y * maxDistance;
-
-    iris.style.transform = `translate(${irisX}px, ${irisY}px)`;
+    targetX = Math.cos(angle) * dist;
+    targetY = Math.sin(angle) * dist;
   }
 
-  function enableGyroscope() {
-    // On iOS 13+ permission must be requested via a user gesture
-    if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
-      DeviceOrientationEvent.requestPermission()
-        .then(response => {
-          if (response === 'granted') {
-            window.addEventListener('deviceorientation', handleDeviceOrientation, true);
-            gyroEnabled = true;
-            // stop mouse tracking to avoid conflicts
-            document.removeEventListener('mousemove', mouseMoveHandler);
-          }
-        })
-        .catch(err => console.error('DeviceOrientation permission error:', err));
-    } else if (typeof DeviceOrientationEvent !== 'undefined') {
-      // Most other mobile browsers
-      window.addEventListener('deviceorientation', handleDeviceOrientation, true);
-      gyroEnabled = true;
-      document.removeEventListener('mousemove', mouseMoveHandler);
-    } else {
-      console.log('DeviceOrientationEvent not supported on this device.');
-    }
+  // Add mouse listener
+  document.addEventListener('mousemove', updateTargetFromMouse);
+
+  // Animation loop to smoothly interpolate to target values
+  function animate() {
+    // simple linear interpolation (lerp)
+    currentX += (targetX - currentX) * smoothFactor;
+    currentY += (targetY - currentY) * smoothFactor;
+
+    // apply transform
+    iris.style.transform = `translate(${currentX}px, ${currentY}px)`;
+
+    requestAnimationFrame(animate);
   }
 
-  // If on a touch-capable device, offer the user to enable the gyroscope control.
-  const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
-  if (isTouchDevice) {
-    // Use a user gesture (confirm) so iOS will accept a subsequent permission request.
-    try {
-      // Show a simple confirm prompt; the user gesture is required for iOS permission.
-      if (confirm('Enable gyroscope control for the eye?')) {
-        enableGyroscope();
-      }
-    } catch (err) {
-      // In some embedded environments confirm might be blocked
-      console.error('Error showing gyroscope prompt', err);
-    }
-  }
+  requestAnimationFrame(animate);
 }
 
 // Language switching
