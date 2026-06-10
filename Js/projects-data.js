@@ -475,11 +475,11 @@ const PROJECTS_DATA = {
       descriptionEn: "(Text In French) Bachelor thesis exploring contemporary 3D worlds and their sonic imaginaries. The project combines research, visual analysis, and sound design to study how 3D environments shape narrative and perception.",
       descriptionFr: "(Texte en Français) Mémoire de Bachelor explorant les univers 3D contemporains et leurs imaginaires sonores. Le projet combine recherche, analyse visuelle et sound design pour étudier comment les environnements 3D façonnent la narration et la perception.",
       images: [
-        { src: "../images/Writings/Sonorite_3D_01.png", alt: "Sonorité des mondes 3D contemporains image 1", width: "1200", height: "800" },
-        { src: "../images/Writings/Sonorite_3D_02.png", alt: "Sonorité des mondes 3D contemporains image 2", width: "1200", height: "800" },
-        { src: "../images/Writings/Sonorite_3D_03.png", alt: "Sonorité des mondes 3D contemporains image 3", width: "1200", height: "800" },
-        { src: "../images/Writings/Sonorite_3D_04.png", alt: "Sonorité des mondes 3D contemporains image 4", width: "1200", height: "800" },
-        { src: "../images/Writings/Sonorite_3D_05.png", alt: "Sonorité des mondes 3D contemporains image 5", width: "1200", height: "800" },
+        { src: "../Images/Writings/Sonorite_3D_01.png", alt: "Sonorité des mondes 3D contemporains image 1", width: "1200", height: "800" },
+        { src: "../Images/Writings/Sonorite_3D_02.png", alt: "Sonorité des mondes 3D contemporains image 2", width: "1200", height: "800" },
+        { src: "../Images/Writings/Sonorite_3D_03.png", alt: "Sonorité des mondes 3D contemporains image 3", width: "1200", height: "800" },
+        { src: "../Images/Writings/Sonorite_3D_04.png", alt: "Sonorité des mondes 3D contemporains image 4", width: "1200", height: "800" },
+        { src: "../Images/Writings/Sonorite_3D_05.png", alt: "Sonorité des mondes 3D contemporains image 5", width: "1200", height: "800" },
       ]
     },
   ],
