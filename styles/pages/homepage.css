@@ -343,7 +343,6 @@ main {
 
   :root {
     --top-nav-h: 36px;
-
     /* fallback values if missing elsewhere */
     --footer-h: 60px;
     --space-8: 8px;
@@ -352,7 +351,7 @@ main {
     --space-24: 24px;
     --space-32: 32px;
   }
-
+  
   html,
   body {
     overflow-y: auto;
@@ -373,16 +372,27 @@ main {
     -webkit-backdrop-filter: blur(4px);
 
     padding: 0 var(--space-16);
-
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: var(--header-h);
     z-index: 1000;
-
-    box-sizing: border-box;
   }
+
+.top-nav {
+  justify-content: center;
+  padding: 0; 
+  margin: 0;               
+  gap: 8px;                 
+}
+
+.top-nav a {
+  font-size: 21px;  
+  letter-spacing: 1px;  
+  padding: 6px 6px;    
+  white-space: nowrap;  
+  display: inline-block;   
+}
 
   .site-title {
     font-size: 24px;
@@ -416,9 +426,7 @@ main {
 
   .eye-section {
     padding:
-      clamp(20px, 3vh, var(--space-32))
-      0
-      clamp(16px, 2.5vh, var(--space-32));
+      clamp(100px, 10vh, 70px) 0;
   }
 
   .box-grid {
