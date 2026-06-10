@@ -1,0 +1,54 @@
+/* --- Color Variables --- */
+:root {
+  /* Typography */
+  --font-retro: 'VT323', monospace;
+  --font-modern: 'Space Grotesk', sans-serif;
+  --font-mono: 'Courier New', 'Monaco', monospace;
+  --font-body: 'Nacelle', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  /* Earth Tone Palette */
+  --bg-primary: #2d251a;
+  --bg-secondary: #3a2f23;
+  --text-primary: #d4b896;
+  --text-secondary: #b8a082;
+  --text-dimmed: #645033;
+  --warm-brown: #8b6f47;
+  
+  /* Playful RGB Accents */
+  --rgb-red: #ff4757;
+  --rgb-blue: #5352ed;
+  --rgb-green: #2ed573;
+  --rgb-yellow: #ffa502;
+  --rgb-cyan: #3742fa;
+  --rgb-purple: #a55eea;
+
+  --color-highlight: #d68b36;
+  
+  /* Spacing System - 4px Grid */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-80: 80px;
+  --space-96: 96px;
+  --space-128: 128px;
+  --space-160: 160px;
+  --space-192: 192px;
+
+  --header-h: 76px;
+  --footer-h: 28px;
+  --top-nav-h: 36px;
+  
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 60px;
+  --space-xxl: 80px;
+}

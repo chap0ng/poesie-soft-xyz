@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POESIE SOFTWARE - Fine Arts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="favicon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=nacelle@100,200,300,400,500&display=swap" rel="stylesheet">
+
+    <!-- styles -->
+    <!-- Core stylesheets -->
+    <link rel="stylesheet" href="styles/core/variables.css">
+    <link rel="stylesheet" href="styles/core/reset.css">
+    <link rel="stylesheet" href="styles/core/base.css">
+
+    <!-- Components -->
+    <link rel="stylesheet" href="styles/general/header.css">
+    <link rel="stylesheet" href="styles/general/footer.css">
+    <link rel="stylesheet" href="styles/general/tags.css">
+    <link rel="stylesheet" href="styles/general/modal-carousel.css">
+
+    <!-- page specific -->
+    <link rel="stylesheet" href="styles/layout/grid.css">
+    <link rel="stylesheet" href="styles/layout/portfolio-cards.css">   
+     
+    <link rel="stylesheet" href="styles/pages/portfolio.css">
+
+    <!-- Data and utilities -->
+    <script src="../Js/projects-data.js"></script>
+    <script src="../Js/portfolio-renderer.js"></script>
+
+    <style>
+        .lang-btn.uninitialized { opacity: 0; pointer-events: none; }
+    </style>
+    <script>
+        (function() {
+            try {
+                const lang = localStorage.getItem('lang') || 'en';
+                window.__langPref = lang;
+            } catch(e) {}
+        })();
+    </script>
+</head>
+<body>
+
+    <header class="header">
+        <a href="index.html" class="back-link" data-en="&#8592;" data-fr="&#8592;">&#8592;</a>
+        <h1 class="page-title" data-en="Fine Arts" data-fr="Beaux-Arts">Fine Arts</h1>
+        <div class="lang-switch">
+            <button class="lang-btn uninitialized active" id="lang-en">EN</button>
+            <span class="separator">/</span>
+            <button class="lang-btn uninitialized" id="lang-fr">FR</button>
+        </div>
+    </header>
+
+    <div class="scrolling-text-container">
+        <div class="scrolling-text">
+            <span class="scroll-inner" data-en="&nbsp;ILLUSTRATION • PAINTINGS • INSTALLATIONS • SCREEN PRINT • " data-fr="&nbsp;ILLUSTRATION • PEINTURES • INSTALLATIONS • SÉRIGRAPHIE • ">&nbsp;ILLUSTRATION • 3D SHORTFILM • PAINTINGS • INSTALLATIONS • SCREEN PRINT • </span>
+        </div>
+    </div>
+
+    <main class="main">
+        <div class="container">
+
+            <section class="intro-section">
+                <pre class="ascii-creature">
+        .--._.--.
+        ( O     O )
+        /   . .   \
+        .`._______.'.
+        /(           )\
+      _/  \  \   /  /  \_
+   .~   `  \  \ /  /  '   ~.
+  {    -.   \  V  /   .-    }
+_ _`.    \  |  |  |  /    .'_ _
+>_       _} |  |  | {_       _<
+ /. - ~ ,_-'  .^.  `-_, ~ - .\
+         '-'|/   \|`-`
+                </pre>
+                <div class="intro-spacer" aria-hidden="true"></div>
+                <div class="tag-filter-container">
+                    <button class="tag-filter-btn tag-filter-all active" data-tag="all" data-en="All Projects" data-fr="Tous les projets">All Projects</button>
+                </div>
+            </section>
+
+            <section class="projects-section">
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Projects will be populated here by JavaScript -->
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script>
+        // Render fine arts projects on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProjectsFromData('fineArts', 'projects-grid');
+        });
+    </script>
+
+    <script src="../Js/header.js" defer></script>
+    <script src="../Js/fine-arts.js"></script>
+</body>
+</html>

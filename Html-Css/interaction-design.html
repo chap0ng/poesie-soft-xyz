@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POESIE SOFTWARE - Interaction Design</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="favicon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=nacelle@100,200,300,400,500&display=swap" rel="stylesheet">
+
+    
+    <!-- styles -->
+    <!-- Core stylesheets -->
+    <link rel="stylesheet" href="styles/core/variables.css">
+    <link rel="stylesheet" href="styles/core/reset.css">
+    <link rel="stylesheet" href="styles/core/base.css">
+
+    <!-- Components -->
+    <link rel="stylesheet" href="styles/general/header.css">
+    <link rel="stylesheet" href="styles/general/footer.css">
+    <link rel="stylesheet" href="styles/general/tags.css">
+    <link rel="stylesheet" href="styles/general/modal-carousel.css">
+
+    <!-- page specific -->
+    <link rel="stylesheet" href="styles/layout/grid.css">
+    <link rel="stylesheet" href="styles/layout/portfolio-cards.css">   
+     
+    <link rel="stylesheet" href="styles/pages/portfolio.css">
+
+    <!-- Data and utilities -->
+    <script src="../Js/projects-data.js"></script>
+    <script src="../Js/portfolio-renderer.js"></script>
+
+
+    <style>
+        .lang-btn.uninitialized { opacity: 0; pointer-events: none; }
+    </style>
+    <script>
+        (function() {
+            try {
+                const lang = localStorage.getItem('lang') || 'en';
+                // Store language preference for later use
+                window.__langPref = lang;
+            } catch(e) {}
+        })();
+    </script>
+</head>
+<body>
+
+    <header class="header">
+        <a href="index.html" class="back-link" data-en="&#8592;" data-fr="&#8592;">&#8592;</a>
+        <h1 class="page-title" data-en="INTERACTION DESIGN" data-fr="DESIGN D'INTERACTION">Interaction Design</h1>
+        <div class="lang-switch">
+            <button class="lang-btn uninitialized active" id="lang-en">EN</button>
+            <span class="separator">/</span>
+            <button class="lang-btn uninitialized" id="lang-fr">FR</button>
+        </div>
+    </header>
+
+    <div class="scrolling-text-container">
+        <div class="scrolling-text">
+            <span class="scroll-inner" data-en="&nbsp;GAME DESIGN • VR • CONNECTED OBJECTS • INTERACTIVE ART • INSTALLATIONS • PROTOTYPES • " data-fr="&nbsp;GAME DESIGN • VR • OBJETS CONNECTÉS • ART INTERACTIF • INSTALLATIONS • PROTOTYPES • ">&nbsp;GAME DESIGN • VR • CONNECTED OBJECTS • INTERACTIVE ART • INSTALLATIONS • PROTOTYPES • </span><span class="scroll-inner" data-en="&nbsp;GAME DESIGN • VR • CONNECTED OBJECTS • INTERACTIVE ART • INSTALLATIONS • PROTOTYPES • " data-fr="&nbsp;GAME DESIGN • VR • OBJETS CONNECTÉS • ART INTERACTIF • INSTALLATIONS • PROTOTYPES • ">&nbsp;GAME DESIGN • VR • CONNECTED OBJECTS • INTERACTIVE ART • INSTALLATIONS • PROTOTYPES • </span>
+        </div>
+    </div>
+
+    <main class="main">
+        <div class="container">
+
+            <section class="intro-section">
+                <pre class="ascii-creature">
+      .-.
+     (o.o)
+      |=|
+     __|__
+   //.=|=.\\
+  // .=|=. \\
+  \\ .=|=. //
+   \\(_=_)//
+    (:| |:)
+     || ||
+     () ()
+     || ||
+     || ||
+    ==' '== 
+                </pre>
+                <div class="intro-spacer" aria-hidden="true"></div>
+                <div class="tag-filter-container">
+                    <button class="tag-filter-btn tag-filter-all active" data-tag="all" data-en="All Projects" data-fr="Tous les projets">All Projects</button>
+                </div>
+            </section>
+
+            <section class="projects-section">
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Projects populated here by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        (function () {
+            const btnEn = document.getElementById('lang-en');
+            const btnFr = document.getElementById('lang-fr');
+            if (!btnEn || !btnFr) return;
+
+            function applyLangToCards(lang) {
+                document.querySelectorAll('.project-card').forEach(card => {
+                    const nextDescription = lang === 'fr'
+                        ? card.getAttribute('data-description-fr')
+                        : card.getAttribute('data-description-en');
+                    if (nextDescription) card.setAttribute('data-description', nextDescription);
+                });
+            }
+
+            function applyLangToText(lang) {
+                document.querySelectorAll('[data-en]').forEach(el => {
+                    const nextText = lang === 'fr' ? el.getAttribute('data-fr') : el.getAttribute('data-en');
+                    if (nextText !== null) el.textContent = nextText;
+                });
+
+                document.querySelectorAll('[data-en-html]').forEach(el => {
+                    const nextHtml = lang === 'fr' ? el.getAttribute('data-fr-html') : el.getAttribute('data-en-html');
+                    if (nextHtml !== null) el.innerHTML = nextHtml;
+                });
+            }
+
+            function applyLangToOpenModal(lang) {
+                const modal = document.querySelector('.project-modal-overlay.open');
+                if (!modal) return;
+
+                const modalTitle = document.querySelector('.project-modal-title');
+                const descEl = document.querySelector('.project-modal-description');
+                if (!modalTitle || !descEl) return;
+
+                const activeCard = Array.from(document.querySelectorAll('.project-card')).find(card => {
+                    return (card.getAttribute('data-title') || '').trim() === modalTitle.textContent.trim();
+                });
+
+                if (!activeCard) return;
+                const nextDescription = lang === 'fr'
+                    ? activeCard.getAttribute('data-description-fr')
+                    : activeCard.getAttribute('data-description-en');
+                if (nextDescription) descEl.textContent = nextDescription;
+            }
+
+            function applyLangToPopupUi(lang) {
+                const prevBtn = document.querySelector('.project-modal-prev-project');
+                const nextBtn = document.querySelector('.project-modal-next-project');
+                const closeBtn = document.querySelector('.project-modal-close');
+
+                if (prevBtn) prevBtn.setAttribute('aria-label', lang === 'fr' ? 'Projet précédent' : 'Previous Project');
+                if (nextBtn) nextBtn.setAttribute('aria-label', lang === 'fr' ? 'Projet suivant' : 'Next Project');
+                if (closeBtn) closeBtn.setAttribute('aria-label', lang === 'fr' ? 'Fermer' : 'Close');
+
+                const mediaLinks = document.querySelectorAll('.project-modal-video a');
+                mediaLinks.forEach(link => {
+                    const href = (link.getAttribute('href') || '').toLowerCase();
+                    const isVideo = href.includes('youtube') || href.includes('vimeo') || href.includes('video');
+                    const isPlay = link.classList.contains('play-link');
+                    
+                    if (isPlay) {
+                        link.textContent = lang === 'fr' ? '▶ JOUER' : '▶ PLAY';
+                    } else if (isVideo) {
+                        link.textContent = lang === 'fr' ? '▶ LIEN VIDÉO' : '▶ VIDEO LINK';
+                    } else {
+                        link.textContent = lang === 'fr' ? '→ LIEN' : '→ LINK';
+                    }
+                });
+            }
+
+            function setLang(lang) {
+                btnEn.classList.toggle('active', lang === 'en');
+                btnFr.classList.toggle('active', lang === 'fr');
+
+                applyLangToText(lang);
+                applyLangToCards(lang);
+                applyLangToOpenModal(lang);
+                applyLangToPopupUi(lang);
+
+                try { localStorage.setItem('lang', lang); } catch (e) {}
+                window.__langPref = lang;
+            }
+
+            btnEn.addEventListener('click', () => setLang('en'));
+            btnFr.addEventListener('click', () => setLang('fr'));
+
+            const initialLang = window.__langPref || 'en';
+            setLang(initialLang);
+
+            document.addEventListener('click', (event) => {
+                if (!event.target.closest('.project-card, .project-modal-prev-project, .project-modal-next-project, .project-modal-tag-btn')) return;
+                requestAnimationFrame(() => {
+                    const currentLang = window.__langPref || 'en';
+                    applyLangToPopupUi(currentLang);
+                    applyLangToOpenModal(currentLang);
+                });
+            });
+
+            btnEn.classList.remove('uninitialized');
+            btnFr.classList.remove('uninitialized');
+        })();
+    </script>
+
+    <script>
+        // Render interaction design projects on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProjectsFromData('interactionDesign', 'projects-grid');
+        });
+    </script>
+
+    <script src="../Js/fine-arts.js"></script>
+</body>
+</html>
