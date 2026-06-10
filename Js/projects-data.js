@@ -203,7 +203,7 @@ const PROJECTS_DATA = {
       ],
       images: [
         { src: "../Images/fine-arts/Hello-01.png", alt: "Hello image 1", width: "1200", height: "800" },
-        { src: "../Images/fine-arts/Hello-02.png", alt: "Hello image 2", width: "1200", height: "800" }
+        { src: "../Images/fine-arts/Hello-02.png", alt: "Hello image 2", width: "1200", height: "800" },
       ]
     }
   ],
