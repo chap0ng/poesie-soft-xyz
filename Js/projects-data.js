@@ -189,7 +189,7 @@ const PROJECTS_DATA = {
       ]
     },
     {
-      id: "hello",
+      id: "Hello",
       title: "Hello",
       year: "2023",
       institution: "PLASMID COLLECTIVE, LA GRANGE 5.0",
