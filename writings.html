@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POESIE SOFTWARE - Writings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="favicon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=nacelle@100,200,300,400,500&display=swap" rel="stylesheet">
+
+    <!-- styles -->
+    <!-- Core stylesheets -->
+    <link rel="stylesheet" href="styles/core/variables.css">
+    <link rel="stylesheet" href="styles/core/reset.css">
+    <link rel="stylesheet" href="styles/core/base.css">
+
+    <!-- Components -->
+    <link rel="stylesheet" href="styles/general/header.css">
+    <link rel="stylesheet" href="styles/general/footer.css">
+    <link rel="stylesheet" href="styles/general/tags.css">
+    <link rel="stylesheet" href="styles/general/modal-carousel.css">
+
+    <!-- page specific -->
+    <link rel="stylesheet" href="styles/layout/grid.css">
+    <link rel="stylesheet" href="styles/layout/portfolio-cards.css">
+
+    <link rel="stylesheet" href="styles/pages/writings.css">
+    <link rel="stylesheet" href="styles/pages/portfolio.css">
+
+    <!-- Data and utilities -->
+    <script src="../Js/projects-data.js"></script>
+    <script src="../Js/portfolio-renderer.js"></script>
+
+    <style>
+        .lang-btn.uninitialized { opacity: 0; pointer-events: none; }
+        
+        .writings-page .intro-section {
+            display: block;
+        }
+        
+        .writings-page .tag-filter-container {
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: center;
+        }
+    </style>
+    <script>
+        (function() {
+            try {
+                const lang = localStorage.getItem('lang') || 'en';
+                
+                // Update text content immediately
+                document.querySelectorAll('[data-en]').forEach(el => {
+                    const text = lang === 'fr' 
+                        ? el.getAttribute('data-fr')
+                        : el.getAttribute('data-en');
+                    if (text !== null) el.textContent = text;
+                });
+                
+                // Store language preference for later use
+                window.__langPref = lang;
+            } catch(e) {}
+        })();
+    </script>
+</head>
+<body class="writings-page">
+
+    <header class="header">
+        <a href="index.html" class="back-link" data-en="&#8592;" data-fr="&#8592;">&#8592;</a>
+        <h1 class="page-title" data-en="WRITINGS" data-fr="ECRITS">WRITINGS</h1>
+        <div class="lang-switch">
+            <button class="lang-btn uninitialized active" id="lang-en">EN</button>
+            <span class="separator">/</span>
+            <button class="lang-btn uninitialized" id="lang-fr">FR</button>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+
+            <section class="intro-section" style="padding: 100px 0 5px;">
+                <div class="tag-filter-container">
+                    <button class="tag-filter-btn tag-filter-all active" data-tag="all">All Projects</button>
+                </div>
+            </section>
+
+            <section class="projects-section">
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Projects will be populated here by JavaScript -->
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script>
+        // Render writings projects on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProjectsFromData('writings', 'projects-grid');
+        });
+    </script>
+
+    <script>
+        (function () {
+            const btnEn = document.getElementById('lang-en');
+            const btnFr = document.getElementById('lang-fr');
+            if (!btnEn || !btnFr) return;
+
+            function applyLangToText(lang) {
+                document.querySelectorAll('[data-en]').forEach(el => {
+                    const nextText = lang === 'fr' ? el.getAttribute('data-fr') : el.getAttribute('data-en');
+                    if (nextText !== null) el.textContent = nextText;
+                });
+
+                document.querySelectorAll('[data-en-html]').forEach(el => {
+                    const nextHtml = lang === 'fr' ? el.getAttribute('data-fr-html') : el.getAttribute('data-en-html');
+                    if (nextHtml !== null) el.innerHTML = nextHtml;
+                });
+            }
+
+            function setLang(lang) {
+                btnEn.classList.toggle('active', lang === 'en');
+                btnFr.classList.toggle('active', lang === 'fr');
+                applyLangToText(lang);
+                try { localStorage.setItem('lang', lang); } catch (e) {}
+                window.__langPref = lang;
+            }
+
+            btnEn.addEventListener('click', () => setLang('en'));
+            btnFr.addEventListener('click', () => setLang('fr'));
+
+            const initialLang = window.__langPref || 'en';
+            setLang(initialLang);
+
+            btnEn.classList.remove('uninitialized');
+            btnFr.classList.remove('uninitialized');
+        })();
+    </script>
+
+    <script src="../Js/fine-arts.js"></script>
+</body>
+</html>

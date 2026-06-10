@@ -1,0 +1,85 @@
+/* --- Tag Filter --- */
+.tag-filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  row-gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  align-items: center;
+}
+
+.tag-filter-btn {
+  font-family: var(--font-retro);
+  font-size: 15px;
+  padding: 8px 12px;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: var(--text-secondary);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  flex: 0 1 auto;
+  min-width: max-content;
+}
+
+.tag-filter-btn:not(.active):hover {
+  background-color: var(--color-highlight);
+  color: var(--bg-primary);
+  transform: translateY(-2px);
+}
+
+.tag-filter-btn.active {
+  color:var(--color-highlight);
+  font-weight: 400;
+  text-shadow: none;
+}
+
+/* Tag-specific colors with 50% opacity active states */
+
+
+.tag-filter-all {
+  color: var(--text-secondary) !important;
+  display: none;
+}
+
+
+/* --- Project Modal Tags --- */
+
+.project-modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  row-gap: 12px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.project-modal-tags .project-modal-tag-btn {
+  font-family: var(--font-retro);
+  font-size: 12px;
+  padding: 6px 12px;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: var(--text-secondary);
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.project-modal-tag-btn:hover {
+  background-color: currentColor;
+  color: var(--bg-primary);
+}
+
+.project-modal-tag-btn.active {
+  color: var(--color-highlight);
+  font-weight: 400;
+  text-shadow: none;
+  background-color: rgba(209, 104, 62, 0.15);
+}
