@@ -83,7 +83,13 @@ const PROJECTS_DATA = {
       year: "2025",
       institution: "HEAD–GENEVA : MASTER-MEDIA-DESIGN",
       institutionLink: "https://www.hesge.ch/head/en/programs-research/master-arts-media-design",
-      collab: "",
+      collab: "Sarah, Enzo, Laurene and Naomi",
+      collabLinks: [
+        { name: "Sarah", url: "https://sarahmeylan.ch//" },
+        { name: "Enzo", url: "https://enzoseurre.com/sarah" },
+        { name: "Lauren", url: "https://thiel.page/" },
+        { name: "Naomi", url: "https://www.instagram.com/nao_bldr/" }
+      ],
       tags: "Speculative Design, Object Design, Exhibition, Unity, Generative, Installation",
       descriptionEn: "Symbiosis imagines Switzerland in 2050, where citizens have left cities to form eco-villages. At the heart of each community sits a ‘Land Mayor’, a symbiotic artificial intelligence that combines citizen contributions with mycorrhizal networks. It generates local micro-policies tailored to the climatic challenges surrounding each village. The installation questions the role of AI in governance and explores how it could foster new forms of coexistence. Visitors are invited to vote via the installation's touchscreens on various political proposals from this speculative universe, collectively shaping a narrative of participatory democracy between humans, nature, and technology.",
       descriptionFr: "Le projet Symbiosis imagine la Suisse en 2050, où les citoyens ont quitté les villes pour former des éco-villages. Au centre de chaque communauté siège un “Maire de terre”, une intelligence artificielle symbiotique qui combine contributions citoyennes et réseaux mycorhiziens. Celle-ci génère pour chaque village des micro-politiques locales adaptées aux enjeux climatiques environnants. Cette installation questionne le rôle de l'intelligence artificielle dans nos structures de gouvernance et explore comment celle-ci pourrait favoriser l'émergence de nouvelles formes de vivre ensemble. Le public est invité à voter, via les écrans tactiles de l’installation, sur différentes propositions politiques issues de cet univers spéculatif, imaginant ainsi le récit d’une nouvelle forme de démocratie participative entre humains, nature et technologie.",
