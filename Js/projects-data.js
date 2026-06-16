@@ -336,12 +336,12 @@ const PROJECTS_DATA = {
         "2025, Espace 28 - Private Exhibition, Lausanne"
       ],
       images: [
-        { src: "../Images/ThreeD/GH_Scene_01.jpeg", alt: "Ghost not in a Shell image 1", width: "1200", height: "800" },
-        { src: "../Images/ThreeD/GH_Scene_02.jpeg", alt: "Ghost not in a Shell image 2", width: "1200", height: "800" },
-        { src: "../Images/ThreeD/GH_Scene_03.jpeg", alt: "Ghost not in a Shell image 3", width: "1200", height: "800" },
-        { src: "../Images/ThreeD/GH_Scene_04.jpeg", alt: "Ghost not in a Shell image 4", width: "1200", height: "800" },
-        { src: "../Images/ThreeD/GH_Scene_05.jpeg", alt: "Ghost not in a Shell image 5", width: "1200", height: "800" },
-        { src: "../Images/ThreeD/GH_Scene_06.jpeg", alt: "Ghost not in a Shell image 6", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/GH_Scene_01.webp", alt: "Ghost not in a Shell image 1", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/GH_Scene_02.webp", alt: "Ghost not in a Shell image 2", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/GH_Scene_03.webp", alt: "Ghost not in a Shell image 3", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/GH_Scene_04.webp", alt: "Ghost not in a Shell image 4", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/GH_Scene_05.webp", alt: "Ghost not in a Shell image 5", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/GH_Scene_06.webp", alt: "Ghost not in a Shell image 6", width: "1200", height: "800" },
       ]
     },
     {
@@ -355,10 +355,10 @@ const PROJECTS_DATA = {
       descriptionEn: "During a workshop on avatar creation and digital identity, I chose to transform hay into a character, a tiny cult of living mushrooms eager to give life back to dry herbs. In the sessions we explored how material, texture and rendering strategies produce identity. I built a small runner, a 'porteur de flamme', who dives into the haypile to reignite it and pass on a flame of life. I deliberately used pixelated renders, noise and degraded images so that abstraction and texture become the character. Glitches, grain and low‑res pixels are how this creature breathes and remembers",
       descriptionFr: "Lors d'un workshop sur la création d'avatars et l'identité numérique, j'ai choisi de transformer la paille en personnage, une petite communauté de champignons vivants heureuse de redonner vie aux herbes sèches. Pendant les séances, nous avons exploré comment la matière, la texture et les stratégies de rendu fabriquent l'identité. J'ai créé un petit coureur, un « porteur de flamme », qui plonge dans la meule de paille pour la ranimer et lui transmettre une flamme de vie. J'ai volontairement utilisé des rendus pixellisés, du bruit et des images dégradées pour faire de l'abstraction et de la texture le caractère. Glitches, grain et pixels basse résolution constituent la respiration de cette créature ainsi que ses souvenirs flous.",
       images: [
-        { src: "../Images/ThreeD/InvokeYourInnerSelf_02.png", alt: "Mushroom People image 2", width: "1200", height: "800" },
-        { src: "../Images/ThreeD/InvokeYourInnerSelf_03.png", alt: "Mushroom People image 3", width: "1200", height: "800" },
-        { src: "../Images/ThreeD/InvokeYourInnerSelf_04.png", alt: "Mushroom People image 4", width: "1200", height: "800" },
-        { src: "../Images/ThreeD/InvokeYourInnerSelf_01.jpg", alt: "Mushroom People image 1", width: "1200", height: "800" },        
+        { src: "../Images/ThreeD/InvokeYourInnerSelf_02.webp", alt: "Mushroom People image 2", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/InvokeYourInnerSelf_03.webp", alt: "Mushroom People image 3", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/InvokeYourInnerSelf_04.webp", alt: "Mushroom People image 4", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/InvokeYourInnerSelf_01.webp", alt: "Mushroom People image 1", width: "1200", height: "800" },        
       ]
     },             
     {
@@ -373,12 +373,12 @@ const PROJECTS_DATA = {
       descriptionFr: "Encore Les Portes est le dernier volet de ma trilogie de diplôme avec Les Portes et Flip. J'ai réalisé ce court métrage pour prolonger leur univers commun: les mêmes personnages pris dans des quêtes absurdes et existentielles, traversant des espaces vides et liminaux, cette fois dans des décors plus réalistes et aseptisés. Le film poursuit ma recherche autour de la perte de repères, de la boucle et de l'humour absurde comme manière de chercher du sens.",
       video: "https://www.youtube.com/watch?v=YbbB3tKGzjU&list=PLoIGnp970lk-Y-exsogpbwQeFUPreOixu&index=7",
       images: [
-        { src: "../Images/ThreeD/EncorePorte_01.jpeg", alt: "Encore Les Portes image 1", width: "1200", height: "800" },
-        { src: "../Images/ThreeD/EncorePorte_02.jpeg", alt: "Encore Les Portes image 2", width: "1200", height: "800" },
-        { src: "../Images/ThreeD/EncorePorte_03.jpeg", alt: "Encore Les Portes image 3", width: "1200", height: "800" },
-        { src: "../Images/ThreeD/EncorePorte_04.jpeg", alt: "Encore Les Portes image 4", width: "1200", height: "800" },
-        { src: "../Images/ThreeD/EncorePorte_05.jpeg", alt: "Encore Les Portes image 5", width: "1200", height: "800" },
-        { src: "../Images/ThreeD/EncorePorte_06.jpeg", alt: "Encore Les Portes image 6", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/EncorePorte_01.webp", alt: "Encore Les Portes image 1", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/EncorePorte_02.webp", alt: "Encore Les Portes image 2", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/EncorePorte_03.webp", alt: "Encore Les Portes image 3", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/EncorePorte_04.webp", alt: "Encore Les Portes image 4", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/EncorePorte_05.webp", alt: "Encore Les Portes image 5", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/EncorePorte_06.webp", alt: "Encore Les Portes image 6", width: "1200", height: "800" },
       ]
     },    
     {
@@ -393,12 +393,12 @@ const PROJECTS_DATA = {
       descriptionFr: "Flip est un personnage né d'une figurine que j'ai réalisée en résine. Il mène une vie simple: sa famille tient un karaoké dans lequel il travaille. Ses parents désirent le voir reprendre le karaoké, mais après un rêve d'une grande profondeur, Flip a un nouvel objectif: devenir un concombre de mer. En suivant un documentaire sur les concombres de mer, il déclenche la venue de la divinité des concombres de mer, qui le motive et l'invite à en devenir un lui aussi.",
       video: "https://vimeo.com/813617093?fl=pl&fe=sh",
       images: [
-        { src: "../Images/ThreeD/Flip_01.png", alt: "Flip image 1", width: "1200", height: "800" },
-        { src: "../Images/ThreeD/Flip_02.png", alt: "Flip image 2", width: "1200", height: "800" },
-        { src: "../Images/ThreeD/Flip_03.png", alt: "Flip image 3", width: "1200", height: "800" },
-        { src: "../Images/ThreeD/Flip_04.png", alt: "Flip image 4", width: "1200", height: "800" },
-        { src: "../Images/ThreeD/Flip_05.png", alt: "Flip image 5", width: "1200", height: "800" },
-          { src: "../Images/ThreeD/Flip_06.png", alt: "Flip image 6", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/Flip_01.webp", alt: "Flip image 1", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/Flip_02.webp", alt: "Flip image 2", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/Flip_03.webp", alt: "Flip image 3", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/Flip_04.webp", alt: "Flip image 4", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/Flip_05.webp", alt: "Flip image 5", width: "1200", height: "800" },
+          { src: "../Images/ThreeD/Flip_06.webp", alt: "Flip image 6", width: "1200", height: "800" },
       ]
     },  
 
@@ -414,10 +414,10 @@ const PROJECTS_DATA = {
       descriptionFr: "J'ai créé pour ce projet une petite histoire d'horreur dans le but de maîtriser les mouvements de caméra portée à la main. J'ai aussi exploré les mécanismes de luminosité et de brouillard ambiant que proposent les logiciels 3D. La recherche se concentre sur l'ambiance du bâtiment où se déroule l'histoire, ainsi que sur le personnage principal et le « character-design » du monstre qui le poursuit.",
       video: "Lien Vidéo :https://tinyurl.com/yc5abw6t",
       images: [
-        { src: "../Images/ThreeD/Boucle_01.png", alt: "Boucle image 1", width: "1200", height: "800" },
-        { src: "../Images/ThreeD/Boucle_02.png", alt: "Boucle image 2", width: "1200", height: "800" },
-        { src: "../Images/ThreeD/Boucle_04.png", alt: "Boucle image 4", width: "1200", height: "800" },        
-        { src: "../Images/ThreeD/Boucle_03.png", alt: "Boucle image 3", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/Boucle_01.webp", alt: "Boucle image 1", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/Boucle_02.webp", alt: "Boucle image 2", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/Boucle_04.webp", alt: "Boucle image 4", width: "1200", height: "800" },        
+        { src: "../Images/ThreeD/Boucle_03.webp", alt: "Boucle image 3", width: "1200", height: "800" },
       ]
     },        
     {
@@ -432,12 +432,12 @@ const PROJECTS_DATA = {
       descriptionFr: "Ce court-métrage raconte l’histoire de la rencontre et de la naissance d’une amitié entre deux personnages prisonniers au cœur du vide ainsi que leurs parcours à travers celui-ci. L’idée est de créer un monde à partir de scènes simples et absurdes qui mettent l’emphase sur les espaces qui les entourent. La porte sert de passage dimensionnel à travers plusieurs paysages numériques. Leur quête simple de trouver un paquet de chips les emmènera à aller voir un grand concert de « clap-mou » au dénouement inattendu.",
       video: "https://vimeo.com/813612248",
       images: [
-        { src: "../Images/ThreeD/Portes_01.png", alt: "Les Portes image 1", width: "1200", height: "800" },
-        { src: "../Images/ThreeD/Portes_02.png", alt: "Les Portes image 2", width: "1200", height: "800" },
-        { src: "../Images/ThreeD/Portes_03.png", alt: "Les Portes image 3", width: "1200", height: "800" },
-        { src: "../Images/ThreeD/Portes_04.png", alt: "Les Portes image 4", width: "1200", height: "800" },
-        { src: "../Images/ThreeD/Portes_05.png", alt: "Les Portes image 5", width: "1200", height: "800" },
-        { src: "../Images/ThreeD/Portes_06.png", alt: "Les Portes image 6", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/Portes_01.webp", alt: "Les Portes image 1", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/Portes_02.webp", alt: "Les Portes image 2", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/Portes_03.webp", alt: "Les Portes image 3", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/Portes_04.webp", alt: "Les Portes image 4", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/Portes_05.webp", alt: "Les Portes image 5", width: "1200", height: "800" },
+        { src: "../Images/ThreeD/Portes_06.webp", alt: "Les Portes image 6", width: "1200", height: "800" },
       ]
     },
 
