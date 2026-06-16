@@ -38,6 +38,7 @@
   image-rendering: crisp-edges;
   filter: grayscale(1) sepia(1) saturate(0.45) hue-rotate(338deg) brightness(0.86) contrast(1.18);
   transition: transform 0.2s ease, filter 0.14s ease;
+  background-color: var(--bg-secondary);
 }
 
 .project-preview::after {
