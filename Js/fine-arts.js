@@ -273,12 +273,12 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="project-modal" role="dialog" aria-modal="true" aria-hidden="true" tabindex="-1">
                 <header class="project-modal-header">
                     <div class="project-modal-left">
-                        <button class="project-modal-prev-project" aria-label="Previous Project">←</button>
-                        <button class="project-modal-next-project" aria-label="Next Project">→</button>
+                        <button class="project-modal-close" aria-label="Close">×</button>
                     </div>
                     <h2 class="project-modal-title"></h2>
                     <div class="project-modal-right">
-                        <button class="project-modal-close" aria-label="Close">×</button>
+                        <button class="project-modal-prev-project" aria-label="Previous Project">←</button>
+                        <button class="project-modal-next-project" aria-label="Next Project">→</button>                        
                     </div>
                 </header>
                 <div class="project-modal-body">
