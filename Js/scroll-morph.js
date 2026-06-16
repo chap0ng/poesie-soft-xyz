@@ -1,9 +1,9 @@
-// scroll-morph.js – IntersectionObserver morph, only for small screens (≤600px)
-// Box1 smoothly resets to 0 when scrolling back to top.
+// scroll-morph.js – only active on phones (touch + small screen)
+// Uses IntersectionObserver to morph boxes on scroll.
 
 document.addEventListener('DOMContentLoaded', () => {
-  const isMobile = window.matchMedia('(max-width: 600px)').matches;
-  if (!isMobile) return;
+  const isPhone = window.matchMedia('(pointer: coarse) and (max-width: 600px)').matches;
+  if (!isPhone) return; // exit on desktops and tablets
 
   setTimeout(() => {
     const instances = window.__menhirInstances || [];
@@ -27,14 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = boxData.find(d => d.box === box);
         if (!data) return;
 
-        // ---- box1: force target to 0 when at top of page ----
+        // box1: stay flat when at top
         if (box.id === 'box1' && window.scrollY < 50) {
           data.target = 0;
-          return; // ignore intersection ratio
+          return;
         }
 
         const raw = Math.min(1, Math.max(0, entry.intersectionRatio));
-        // Full morph at 90% visibility
         const mapped = Math.min(1, raw / 0.9);
         data.target = mapped;
       });
@@ -47,12 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
     boxes.forEach(box => observer.observe(box));
 
     let rafId = null;
-    const SMOOTH = 0.12; // adjust for faster/slower
+    const SMOOTH = 0.12;
 
     function update() {
       let anyChanged = false;
       boxData.forEach(data => {
-        // box1 guard – also enforce target 0 while at top (in case observer lags)
+        // box1 guard
         if (data.box.id === 'box1' && window.scrollY < 50) {
           data.target = 0;
         }
@@ -69,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
           anyChanged = true;
         }
       });
+
       if (anyChanged) rafId = requestAnimationFrame(update);
       else rafId = null;
     }
@@ -77,12 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!rafId) rafId = requestAnimationFrame(update);
     }
 
-    // Start all at 0
+    // init all to 0
     boxData.forEach(d => { d.current = 0; d.instance.setProgress(0); });
     startLoop();
-
-    // Re‑run the update when scrolling (passive)
-    window.addEventListener('scroll', () => {}, { passive: true });
 
   }, 0);
 });

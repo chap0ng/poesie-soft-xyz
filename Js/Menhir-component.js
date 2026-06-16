@@ -170,121 +170,134 @@
   }
 
   // ── BUILD ─────────────────────────────────────────────────────────────────
-  function build(el, cfg) {
-    el.style.backgroundImage = 'none';
-    const NS = 'http://www.w3.org/2000/svg';
-    const target = cfg.rect === 'wide' ? RECT_WIDE : RECT;
-    const slimFactor = cfg.slimFactor || 0.86;
-    const sourceOutline = scaleXPoints(cfg.outline, slimFactor);
-    const sourceLines = scaleXLines(cfg.lines, slimFactor);
-    const defaultLabel = resolveLabel(cfg, 'en');
-    const fontSize = cfg.fontSize || (defaultLabel.length > 10 ? 22 : 28);
 
-    const svg = document.createElementNS(NS, 'svg');
-    svg.setAttribute('viewBox', '0 0 220 290');
-    svg.setAttribute('width', '100%');
-    svg.setAttribute('height', '100%');
+function build(el, cfg) {
+  el.style.backgroundImage = 'none';
+  const NS = 'http://www.w3.org/2000/svg';
+  const target = cfg.rect === 'wide' ? RECT_WIDE : RECT;
+  const slimFactor = cfg.slimFactor || 0.86;
+  const sourceOutline = scaleXPoints(cfg.outline, slimFactor);
+  const sourceLines = scaleXLines(cfg.lines, slimFactor);
+  const defaultLabel = resolveLabel(cfg, 'en');
+  const fontSize = cfg.fontSize || (defaultLabel.length > 10 ? 22 : 28);
 
-    // Lines
-    const lineEls = sourceLines.map(([x1,y1,x2,y2,op]) => {
-      const l = document.createElementNS(NS, 'line');
-      l.setAttribute('x1',x1); l.setAttribute('y1',y1);
-      l.setAttribute('x2',x2); l.setAttribute('y2',y2);
-      l.setAttribute('stroke','#a77f4e');
-      l.setAttribute('stroke-width','1');
-      l.setAttribute('stroke-linecap','round');
-      l.setAttribute('opacity', op);
-      svg.appendChild(l);
-      return { el: l, base: op };
-    });
+  const svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('viewBox', '0 0 220 290');
+  svg.setAttribute('width', '100%');
+  svg.setAttribute('height', '100%');
 
-    // Outline
-    const path = document.createElementNS(NS, 'path');
-    path.setAttribute('d', pts2path(sourceOutline));
-    path.setAttribute('fill', 'none');
-    path.setAttribute('stroke', '#d4b896');
-    path.setAttribute('stroke-width', '1.5');
-    path.setAttribute('stroke-linejoin', 'miter');
-    path.setAttribute('stroke-miterlimit', '8');
-    path.setAttribute('stroke-linecap', 'round');
-    svg.appendChild(path);
+  // ── Lines ──
+  const lineEls = sourceLines.map(([x1,y1,x2,y2,op]) => {
+    const l = document.createElementNS(NS, 'line');
+    l.setAttribute('x1',x1); l.setAttribute('y1',y1);
+    l.setAttribute('x2',x2); l.setAttribute('y2',y2);
+    l.setAttribute('stroke','#a77f4e');
+    l.setAttribute('stroke-width','1');
+    l.setAttribute('stroke-linecap','round');
+    l.setAttribute('opacity', op);
+    svg.appendChild(l);
+    return { el: l, base: op };
+  });
 
-    // Text
-    const txt = document.createElementNS(NS, 'text');
-    const textY = cfg.textY || (cfg.rect === 'wide' ? '144' : '146');
-    txt.setAttribute('x', '110');
-    txt.setAttribute('y', textY);
-    txt.setAttribute('text-anchor', 'middle');
-    txt.setAttribute('dominant-baseline', 'middle');
-    txt.setAttribute('font-family', "'VT323',monospace");
-    txt.setAttribute('font-size', fontSize);
-    txt.setAttribute('letter-spacing', '3');
-    txt.setAttribute('fill', '#d4b896');
-    txt.setAttribute('opacity', '0');
-    txt.setAttribute('pointer-events', 'none');
-    setSvgTextLines(txt, defaultLabel);
-    svg.appendChild(txt);
+  // ── Outline ──
+  const path = document.createElementNS(NS, 'path');
+  path.setAttribute('d', pts2path(sourceOutline));
+  path.setAttribute('fill', 'none');
+  path.setAttribute('stroke', '#d4b896');
+  path.setAttribute('stroke-width', '1.5');
+  path.setAttribute('stroke-linejoin', 'miter');
+  path.setAttribute('stroke-miterlimit', '8');
+  path.setAttribute('stroke-linecap', 'round');
+  svg.appendChild(path);
 
-    const floatWrap = document.createElement('div');
-    floatWrap.className = 'ambient-float';
-    floatWrap.style.width = '100%';
-    floatWrap.style.height = '100%';
-    floatWrap.style.display = 'flex';
-    floatWrap.style.alignItems = 'center';
-    floatWrap.style.justifyContent = 'center';
-    floatWrap.appendChild(svg);
-    el.appendChild(floatWrap);
+  // ── Text ──
+  const txt = document.createElementNS(NS, 'text');
+  const textY = cfg.textY || (cfg.rect === 'wide' ? '144' : '146');
+  txt.setAttribute('x', '110');
+  txt.setAttribute('y', textY);
+  txt.setAttribute('text-anchor', 'middle');
+  txt.setAttribute('dominant-baseline', 'middle');
+  txt.setAttribute('font-family', "'VT323',monospace");
+  txt.setAttribute('font-size', fontSize);
+  txt.setAttribute('letter-spacing', '3');
+  txt.setAttribute('fill', '#d4b896');
+  txt.setAttribute('opacity', '0');
+  txt.setAttribute('pointer-events', 'none');
+  setSvgTextLines(txt, defaultLabel);
+  svg.appendChild(txt);
 
-    // ── Animation state ──
-    let raf = null, prog = 0, dir = 0, startP = 0, startT = null;
-    const DUR = 580;
+  const floatWrap = document.createElement('div');
+  floatWrap.className = 'ambient-float';
+  floatWrap.style.width = '100%';
+  floatWrap.style.height = '100%';
+  floatWrap.style.display = 'flex';
+  floatWrap.style.alignItems = 'center';
+  floatWrap.style.justifyContent = 'center';
+  floatWrap.appendChild(svg);
+  el.appendChild(floatWrap);
 
-    function tick(ts) {
-      if (!startT) startT = ts;
-      const t = ease(Math.min((ts - startT) / DUR, 1));
-      prog = dir > 0 ? startP + (1 - startP) * t : startP * (1 - t);
-      prog = Math.max(0, Math.min(1, prog));
-      applyProgress(prog);
-      if ((ts - startT) < DUR) raf = requestAnimationFrame(tick);
-      else { raf = null; startT = null; }
-    }
+  // ── ANIMATION STATE ──────────────────────────────────────────
+  let raf = null;
+  let prog = 0;
+  let dir = 0;
+  let startP = 0;
+  let startT = null;
+  const DUR = 580;
 
-    function applyProgress(p) {
-      p = Math.max(0, Math.min(1, p));
-      path.setAttribute('d', pts2path(lerp(sourceOutline, target, p)));
-      lineEls.forEach(({el,base}) => el.setAttribute('opacity', (1-p)*base));
-      txt.setAttribute('opacity', p > .58 ? (p-.58)/.42 : 0);
-      const r = Math.round(180 + 32*p);
-      const g = Math.round(152 + 28*p);
-      const b = Math.round(118 + 32*p);
-      path.setAttribute('stroke', `rgb(${r},${g},${b})`);
-    }
-
-    function morphTo(tgt) {
-      if (raf) cancelAnimationFrame(raf);
-      startP = prog;
-      startT = null;
-      dir = tgt > prog ? 1 : -1;
+  function tick(ts) {
+    if (!startT) startT = ts;
+    const t = ease(Math.min((ts - startT) / DUR, 1));
+    prog = dir > 0 ? startP + (1 - startP) * t : startP * (1 - t);
+    prog = Math.max(0, Math.min(1, prog));
+    applyProgress(prog);
+    if ((ts - startT) < DUR) {
       raf = requestAnimationFrame(tick);
+    } else {
+      raf = null;
+      startT = null;
     }
-
-    // ── Decide interaction mode based on screen width ──
-    const isMobile = window.matchMedia('(max-width: 600px)').matches;
-
-    if (!isMobile) {
-      // Desktop: hover morph
-      el.addEventListener('mouseenter', () => morphTo(1));
-      el.addEventListener('mouseleave', () => morphTo(0));
-    }
-
-    return {
-      element: el,
-      setLabel(label) { setSvgTextLines(txt, label || ''); },
-      deactivate() { morphTo(0); },
-      morphTo,
-      setProgress(p) { applyProgress(p); } // for scroll observer (mobile only)
-    };
   }
+
+  function applyProgress(p) {
+    p = Math.max(0, Math.min(1, p));
+    path.setAttribute('d', pts2path(lerp(sourceOutline, target, p)));
+    lineEls.forEach(({el,base}) => el.setAttribute('opacity', (1 - p) * base));
+    txt.setAttribute('opacity', p > 0.58 ? (p - 0.58) / 0.42 : 0);
+    const r = Math.round(180 + 32 * p);
+    const g = Math.round(152 + 28 * p);
+    const b = Math.round(118 + 32 * p);
+    path.setAttribute('stroke', `rgb(${r},${g},${b})`);
+  }
+
+  function morphTo(tgt) {
+    if (raf) cancelAnimationFrame(raf);
+    startP = prog;
+    startT = null;
+    dir = tgt > prog ? 1 : -1;
+    raf = requestAnimationFrame(tick);
+  }
+
+// ── Interaction ──────────────────────────────────────────────
+// Only attach hover events if the device is NOT touch-only
+const isTouch = window.matchMedia('(hover:none)').matches;
+
+if (!isTouch) {
+  el.addEventListener('mouseenter', () => morphTo(1));
+  el.addEventListener('mouseleave', () => morphTo(0));
+} else {
+  // On touch devices, hover events are often fired after taps,
+  // so we explicitly ignore them by not attaching.
+}
+
+  // ── RETURN ────────────────────────────────────────────────────
+  return {
+    element: el,
+    setLabel(label) { setSvgTextLines(txt, label || ''); },
+    deactivate() { morphTo(0); },
+    morphTo,
+    setProgress(p) { applyProgress(p); } // for scroll observer (mobile only)
+  };
+}
 
   // ── INIT ──────────────────────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', () => {
