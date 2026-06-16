@@ -86,7 +86,7 @@ const PROJECTS_DATA = {
       collab: "Sarah, Enzo, Laurene and Naomi",
       collabLinks: [
         { name: "Sarah", url: "https://sarahmeylan.ch//" },
-        { name: "Enzo", url: "https://enzoseurre.com/sarah" },
+        { name: "Enzo", url: "https://enzoseurre.com/" },
         { name: "Lauren", url: "https://thiel.page/" },
         { name: "Naomi", url: "https://www.instagram.com/nao_bldr/" }
       ],

@@ -419,29 +419,32 @@ main {
 
     /* keep the same top gap as the other pages */
     padding-top: var(--header-h);
-
     overflow: visible;
     box-sizing: border-box;
   }
 
   .eye-section {
-    padding:
-      clamp(100px, 10vh, 70px) 0;
+    padding: clamp(120px, 12vh, 80px) 0 clamp(30px, 4vh, 50px) 0;
+  }
+
+  .clickable-box {
+    min-height: 50vh; /* was clamp(120px, 18vh, 180px) – now at least half the viewport */
   }
 
   .box-grid {
     display: grid;
     grid-template-columns: 1fr;
 
-    gap: var(--space-24);
-
-    padding:
-      clamp(12px, 2.5vh, var(--space-24))
-      var(--space-16)
-      clamp(16px, 3vh, var(--space-24));
+    gap: var(--space-32);
+    padding: var(--space-24) var(--space-16);
 
     box-sizing: border-box;
   }
+
+  .box-grid {
+    gap: var(--space-32);
+    padding: var(--space-24) var(--space-16);
+  } 
 
   .footer-nav {
     gap: var(--space-12);

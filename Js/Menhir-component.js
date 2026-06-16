@@ -1,12 +1,10 @@
 /**
- * SVG morph component — all 4 homepage boxes
- * Each box morphs its shape into its section label on hover / tap.
-
+ * SVG morph component — homepage boxes.
+ * On desktop: hover to morph. On mobile (≤600px): scroll to morph.
  */
 (function () {
 
-  // ── SHARED MORPH TARGET (rectangle the text lives inside) ────────────────
-  // 34 point-pairs = 68 numbers — must match every shape's point count
+  // ── SHARED MORPH TARGET (rectangle) ──────────────────────────────────────
   const RECT = [
     15,100, 35,100, 58,100, 82,100, 106,100, 130,100,
     154,100, 178,100, 205,100, 205,110, 205,122, 205,134,
@@ -16,7 +14,6 @@
      15,122,  15,110,  15,100,  15,100,
   ];
 
-  // Wider + taller rect for long labels
   const RECT_WIDE = [
      4,96,  25,96,  48,96,  72,96,  96,96, 120,96,
    144,96, 168,96, 216,96, 216,108, 216,120, 216,132,
@@ -26,20 +23,10 @@
      4,120,   4,108,   4, 96,   4, 96,
   ];
 
-  // ── BOX CONFIG ───────────────────────────────────────────────────────────
-  // outline: flat array of [x,y] pairs — 34 pairs, clockwise closed shape
-  // Replace with your own SVG path points from Affinity Designer
-  // lines: decorative face lines [x1,y1,x2,y2,opacity]
-  // label: text shown after morph
-  // textY: vertical centre of text inside the rect (default 146)
-
+  // ── BOX CONFIG (unchanged) ───────────────────────────────────────────────
   const BOXES = {
-
     box1: {
-      labels: {
-        en: 'FINE ARTS',
-        fr: 'BEAUX-ARTS',
-      },
+      labels: { en: 'FINE ARTS', fr: 'BEAUX-ARTS' },
       outline: [
         98.83,23.043, 72.334,49.923, 63.502,82.948, 61.582,111.364,
         71.566,153.22, 60.046,193.925, 69.262,218.501, 90.766,250.373,
@@ -58,14 +45,8 @@
         [64.27,193.157, 157.199,203.909, 0.36],
       ],
     },
-
     box2: {
-      labels: {
-        en: 'INTERACTION\nDESIGN',
-        fr: "DESIGN\nD'INTERACTION",
-      },
-
-
+      labels: { en: 'INTERACTION\nDESIGN', fr: "DESIGN\nD'INTERACTION" },
       outline: [
         93.092,15.418, 76.726,43.381, 50.084,79.93, 43.172,129.467,
         43.172,129.467, 61.921,164.802, 63.457,170.946, 64.993,177.09,
@@ -89,12 +70,8 @@
         [131.877,134.545, 135.333,152.891, 0.35],
       ],
     },
-
     box3: {
-      labels: {
-        en: 'GAMES',
-        fr: 'JEUX',
-      },
+      labels: { en: 'GAMES', fr: 'JEUX' },
       outline: [
         83.876,20.794, 35.492,39.61, 33.572,139.067, 34.724,243.132,
         50.084,263.485, 107.684,269.629, 156.837,264.637, 185.253,235.452,
@@ -118,12 +95,8 @@
         [55.46,246.204, 76.964,265.405, 0.35],
       ],
     },
-
     box4: {
-      labels: {
-        en: '3D WORKS',
-        fr: 'PRATIQUE 3D',
-      },
+      labels: { en: '3D WORKS', fr: 'PRATIQUE 3D' },
       outline: [
         105.764,7.354, 65.444,54.586, 56.937,102.163, 38.18,149.819,
         55.06,172.042, 59.668,183.562, 64.276,195.083, 63.524,212.028,
@@ -148,7 +121,6 @@
         [65.06,149.78, 119.145,182.076, 0.35],
       ],
     },
-
   };
 
   // ── UTILS ────────────────────────────────────────────────────────────────
@@ -163,11 +135,11 @@
   function ease(t) { return t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2; }
 
   function scaleXPoints(points, factor, centerX = 110) {
-    return points.map((value, index) => index % 2 === 0 ? centerX + (value - centerX) * factor : value);
+    return points.map((v, i) => i % 2 === 0 ? centerX + (v - centerX) * factor : v);
   }
 
   function scaleXLines(lines, factor, centerX = 110) {
-    return (lines || []).map(([x1, y1, x2, y2, op]) => [
+    return (lines || []).map(([x1,y1,x2,y2,op]) => [
       centerX + (x1 - centerX) * factor,
       y1,
       centerX + (x2 - centerX) * factor,
@@ -177,23 +149,17 @@
   }
 
   function resolveLabel(cfg, lang) {
-    if (cfg.labels) {
-      return cfg.labels[lang] || cfg.labels.en || '';
-    }
-    return cfg.label || '';
+    return cfg.labels?.[lang] || cfg.labels?.en || cfg.label || '';
   }
 
   function setSvgTextLines(textEl, label) {
-    const value = String(label || '');
-    const lines = value.split('\n').map(s => s.trim()).filter(Boolean);
+    const lines = String(label || '').split('\n').filter(Boolean);
     textEl.textContent = '';
-
     if (!lines.length) return;
     if (lines.length === 1) {
       textEl.textContent = lines[0];
       return;
     }
-
     lines.forEach((line, i) => {
       const tspan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
       tspan.setAttribute('x', '110');
@@ -219,7 +185,7 @@
     svg.setAttribute('width', '100%');
     svg.setAttribute('height', '100%');
 
-    // Decorative lines
+    // Lines
     const lineEls = sourceLines.map(([x1,y1,x2,y2,op]) => {
       const l = document.createElementNS(NS, 'line');
       l.setAttribute('x1',x1); l.setAttribute('y1',y1);
@@ -232,7 +198,7 @@
       return { el: l, base: op };
     });
 
-    // Outline path
+    // Outline
     const path = document.createElementNS(NS, 'path');
     path.setAttribute('d', pts2path(sourceOutline));
     path.setAttribute('fill', 'none');
@@ -243,7 +209,7 @@
     path.setAttribute('stroke-linecap', 'round');
     svg.appendChild(path);
 
-    // Label text
+    // Text
     const txt = document.createElementNS(NS, 'text');
     const textY = cfg.textY || (cfg.rect === 'wide' ? '144' : '146');
     txt.setAttribute('x', '110');
@@ -267,121 +233,87 @@
     floatWrap.style.alignItems = 'center';
     floatWrap.style.justifyContent = 'center';
     floatWrap.appendChild(svg);
-
     el.appendChild(floatWrap);
 
-    // ── Animation ──
+    // ── Animation state ──
     let raf = null, prog = 0, dir = 0, startP = 0, startT = null;
     const DUR = 580;
 
     function tick(ts) {
       if (!startT) startT = ts;
       const t = ease(Math.min((ts - startT) / DUR, 1));
-      prog = dir > 0 ? startP + (1-startP)*t : startP*(1-t);
+      prog = dir > 0 ? startP + (1 - startP) * t : startP * (1 - t);
       prog = Math.max(0, Math.min(1, prog));
-
-      path.setAttribute('d', pts2path(lerp(sourceOutline, target, prog)));
-      lineEls.forEach(({el,base}) => el.setAttribute('opacity', (1-prog)*base));
-      txt.setAttribute('opacity', prog > .58 ? (prog-.58)/.42 : 0);
-
-      const r = Math.round(180+32*prog), g = Math.round(152+28*prog), b = Math.round(118+32*prog);
-      path.setAttribute('stroke', `rgb(${r},${g},${b})`);
-
-      if ((ts-startT) < DUR) raf = requestAnimationFrame(tick);
+      applyProgress(prog);
+      if ((ts - startT) < DUR) raf = requestAnimationFrame(tick);
       else { raf = null; startT = null; }
     }
 
+    function applyProgress(p) {
+      p = Math.max(0, Math.min(1, p));
+      path.setAttribute('d', pts2path(lerp(sourceOutline, target, p)));
+      lineEls.forEach(({el,base}) => el.setAttribute('opacity', (1-p)*base));
+      txt.setAttribute('opacity', p > .58 ? (p-.58)/.42 : 0);
+      const r = Math.round(180 + 32*p);
+      const g = Math.round(152 + 28*p);
+      const b = Math.round(118 + 32*p);
+      path.setAttribute('stroke', `rgb(${r},${g},${b})`);
+    }
+
     function morphTo(tgt) {
-      if (raf) { cancelAnimationFrame(raf); raf = null; }
-      startP = prog; startT = null;
+      if (raf) cancelAnimationFrame(raf);
+      startP = prog;
+      startT = null;
       dir = tgt > prog ? 1 : -1;
       raf = requestAnimationFrame(tick);
     }
 
-    const touch = () => window.matchMedia('(hover:none)').matches;
-    let tog = false;
-    el.addEventListener('mouseenter', () => {
-      if (!touch()) {
-        morphTo(1);
-        // Laser FX hook disabled (kept for later use)
-        // window.dispatchEvent(new CustomEvent('menhir-hover', {
-        //   detail: { active: true, element: el }
-        // }));
-      }
-    });
-    el.addEventListener('mouseleave', () => {
-      if (!touch()) {
-        morphTo(0);
-        // Laser FX hook disabled (kept for later use)
-        // window.dispatchEvent(new CustomEvent('menhir-hover', {
-        //   detail: { active: false, element: el }
-        // }));
-      }
-    });
-    el.addEventListener('click', () => {
-      if (!touch()) return;
-      tog = !tog; morphTo(tog ? 1 : 0);
-      el.dataset.activated = tog ? 'true' : 'false';
-      
-      // Notify about activation state change for external deactivation
-      window.dispatchEvent(new CustomEvent('menhir-tap', {
-        detail: { element: el, isActivating: tog }
-      }));
-    });
+    // ── Decide interaction mode based on screen width ──
+    const isMobile = window.matchMedia('(max-width: 600px)').matches;
+
+    if (!isMobile) {
+      // Desktop: hover morph
+      el.addEventListener('mouseenter', () => morphTo(1));
+      el.addEventListener('mouseleave', () => morphTo(0));
+    }
 
     return {
       element: el,
-      setLabel(label) {
-        setSvgTextLines(txt, label || '');
-      },
-      deactivate() {
-        if (tog) {
-          tog = false;
-          morphTo(0);
-          el.dataset.activated = 'false';
-        }
-      }
+      setLabel(label) { setSvgTextLines(txt, label || ''); },
+      deactivate() { morphTo(0); },
+      morphTo,
+      setProgress(p) { applyProgress(p); } // for scroll observer (mobile only)
     };
   }
 
   // ── INIT ──────────────────────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', () => {
     const instances = {};
+    window.__menhirInstances = window.__menhirInstances || [];
+
     Object.entries(BOXES).forEach(([id, cfg]) => {
       const el = document.getElementById(id);
-      if (el) instances[id] = build(el, cfg);
+      if (el) {
+        const instance = build(el, cfg);
+        instances[id] = instance;
+        window.__menhirInstances.push(instance);
+      }
     });
 
+    // Language
     function applyLanguage(lang) {
       Object.entries(BOXES).forEach(([id, cfg]) => {
-        const instance = instances[id];
-        if (!instance) return;
-        instance.setLabel(resolveLabel(cfg, lang));
+        const inst = instances[id];
+        if (inst) inst.setLabel(resolveLabel(cfg, lang));
       });
     }
 
     let initialLang = 'en';
-    try {
-      initialLang = localStorage.getItem('lang') || 'en';
-    } catch (e) {}
+    try { initialLang = localStorage.getItem('lang') || 'en'; } catch (e) {}
     applyLanguage(initialLang);
 
-    window.addEventListener('language-change', (event) => {
-      const nextLang = (event && event.detail && event.detail.lang) || 'en';
-      applyLanguage(nextLang);
-    });
-
-    // On mobile, deactivate other menhirs when one is tapped
-    window.addEventListener('menhir-tap', (event) => {
-      const { element, isActivating } = event.detail;
-      if (isActivating) {
-        // Deactivate all other instances
-        Object.entries(instances).forEach(([id, instance]) => {
-          if (instance.element !== element) {
-            instance.deactivate();
-          }
-        });
-      }
+    window.addEventListener('language-change', (e) => {
+      applyLanguage(e?.detail?.lang || 'en');
     });
   });
 
