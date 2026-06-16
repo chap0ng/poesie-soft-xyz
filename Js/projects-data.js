@@ -121,11 +121,11 @@ const PROJECTS_DATA = {
       descriptionEn: "When night falls, objects that served their purpose during the day are left alone. This photographic series explores the secret life of these objects after dark, capturing their silent presence and the atmosphere of nocturnal spaces.",
       descriptionFr: "Lorsque la nuit tombe, les objets qui remplissaient leurs fonctions pendant la journée se retrouvent seuls. Cette série photographique explore la vie secrète de ces objets la nuit, capturant leur présence silencieuse et l'atmosphère des espaces nocturnes.",
       images: [
-        { src: "../Images/fine-arts/After-Party-05.png", alt: "After Party image 1", width: "1200", height: "800" },
-        { src: "../Images/fine-arts/After-Party-02.png", alt: "After Party image 2", width: "1200", height: "800" },
-        { src: "../Images/fine-arts/After-Party-03.png", alt: "After Party image 3", width: "1200", height: "800" },
-        { src: "../Images/fine-arts/After-Party-04.png", alt: "After Party image 4", width: "1200", height: "800" },
-        { src: "../Images/fine-arts/After-Party-01.png", alt: "After Party image 5", width: "1200", height: "800" }
+        { src: "../Images/fine-arts/After-Party-05.webp", alt: "After Party image 1", width: "1200", height: "800" },
+        { src: "../Images/fine-arts/After-Party-02.webp", alt: "After Party image 2", width: "1200", height: "800" },
+        { src: "../Images/fine-arts/After-Party-03.webp", alt: "After Party image 3", width: "1200", height: "800" },
+        { src: "../Images/fine-arts/After-Party-04.webp", alt: "After Party image 4", width: "1200", height: "800" },
+        { src: "../Images/fine-arts/After-Party-01.webp", alt: "After Party image 5", width: "1200", height: "800" }
       ]
     },
     {
@@ -140,8 +140,8 @@ const PROJECTS_DATA = {
       descriptionFr: "L'incubateur est une installation audio-visuelle interactive réalisée lors de ma première année de Bachelor. Elle a constitué mon premier geste expérimental dans le domaine des installations interactives, mêlant sons et images activés par l'interaction du public avec un pad central. Chaque effet sonore influence l'œuvre et génère des compositions visuelles uniques.",
       video: "https://www.youtube.com/watch?v=IMkOtXBf3is",
       images: [
-        { src: "../Images/fine-arts/incubateur-03.JPG", alt: "L'incubateur image 1", width: "1500", height: "800" },
-        { src: "../Images/fine-arts/incubateur-04.JPG", alt: "L'incubateur image 2", width: "1200", height: "800" }
+        { src: "../Images/fine-arts/incubateur-03.webp", alt: "L'incubateur image 1", width: "1500", height: "800" },
+        { src: "../Images/fine-arts/incubateur-04.webp", alt: "L'incubateur image 2", width: "1200", height: "800" }
       ]
     },
     {
@@ -156,10 +156,10 @@ const PROJECTS_DATA = {
       descriptionFr: "Promenade est mon premier court-métrage 3D, explorant le lien entre le monde tangible et digital à travers la narration et la création d'œuvres physiques. La vidéo a été présentée avec des peintures réalisées à l'aide d'un bâton en bois, également exposé. Ce projet a déclenché ma fascination pour le vide de la 3D et le potentiel narratif de quelques éléments.",
       video: "https://www.youtube.com/watch?v=7qh8TqIoj_Y&list=PLoIGnp970lk-Y-exsogpbwQeFUPreOixu&index=3&t=163s",
       images: [
-        { src: "../Images/fine-arts/promenade-02.png", alt: "Promenade image 1", width: "1200", height: "800" },
-        { src: "../Images/fine-arts/promenade-03.png", alt: "Promenade image 2", width: "1200", height: "800" },
-        { src: "../Images/fine-arts/promenade-01.png", alt: "Promenade image 3", width: "1200", height: "800" },
-        { src: "../Images/fine-arts/promenade-04.png", alt: "Promenade image 4", width: "1200", height: "800" }
+        { src: "../Images/fine-arts/promenade-02.webp", alt: "Promenade image 1", width: "1200", height: "800" },
+        { src: "../Images/fine-arts/promenade-03.webp", alt: "Promenade image 2", width: "1200", height: "800" },
+        { src: "../Images/fine-arts/promenade-01.webp", alt: "Promenade image 3", width: "1200", height: "800" },
+        { src: "../Images/fine-arts/promenade-04.webp", alt: "Promenade image 4", width: "1200", height: "800" }
       ]
     },
     {
@@ -173,9 +173,9 @@ const PROJECTS_DATA = {
       descriptionEn: "The humanoid figure animates step by step through a slow drip mechanism. Its body transforms as it moves forward and stops when the reservoir is exhausted. The 3D model becomes affected by the impacts of the liquid. The 'Goutte-à-pas' installation uses a low-rate drip divided into three nozzles; drops fall onto small plexiglass boxes arranged in a line parallel to the projection. Micro-contacts inside the boxes act as triggers on impact, randomly generating sound and deforming the projected 3D visuals.",
       descriptionFr: "Le personnage humanoïde s’anime pas-à-pas par le biais du goutte-à-goutte. Son corps se transforme, il avance et s’arrête quand le réservoir c’est épuisé. Le modèle 3D est parasité par les impacts du liquide. L’installation « Goutte-à-pas », comporte un goutte-à-goutte réglé à une cadence basse, séparé en trois embouts. Les gouttes tombent sur les petites boites en plexiglass. Elles sont disposées en une ligne parallèle à la projection. Des micro-contacts sont installés à l’intérieur des boites. Ceux-ci servent de déclencheurs lors de l’impact des gouttes sur le plexiglass, ce qui génère aléatoirement le son ainsi que la déformation du visuel 3D projeté.",
       images: [
-        { src: "../Images/fine-arts/Gouttes_01.jpeg", alt: "Goutte à Pas image 1", width: "1200", height: "800" },
-        { src: "../Images/fine-arts/Gouttes_02.jpeg", alt: "Goutte à Pas image 2", width: "1200", height: "800" },
-        { src: "../Images/fine-arts/Gouttes_03.jpeg", alt: "Goutte à Pas image 3", width: "1200", height: "800" },
+        { src: "../Images/fine-arts/Gouttes_01.webp", alt: "Goutte à Pas image 1", width: "1200", height: "800" },
+        { src: "../Images/fine-arts/Gouttes_02.webp", alt: "Goutte à Pas image 2", width: "1200", height: "800" },
+        { src: "../Images/fine-arts/Gouttes_03.webp", alt: "Goutte à Pas image 3", width: "1200", height: "800" },
       ]
     },    
     {
@@ -189,9 +189,9 @@ const PROJECTS_DATA = {
       descriptionEn: "Spectral Terrarium is an audiovisual installation combining 3D animation, sound, and the analysis of a decomposing slice of bread. The bread, kept in a vacuum for a month, was documented photographically to observe its transformation. The work seeks to transcend the discomfort of decomposition and create a link between the real and virtual worlds, embracing randomness as part of the installation's presentation.",
       descriptionFr: "Spectral Terrarium est une installation audio-visuelle composée d'animation 3D, de son et de l'analyse d'une tranche de pain en décomposition. Conservée sous vide pendant un mois, la tranche a été documentée photographiquement pour observer sa transformation. L'œuvre cherche à dépasser le dégoût de la décomposition et à tisser un lien entre réel et virtuel, en laissant l'aléatoire guider la présentation.",
       images: [
-        { src: "../Images/fine-arts/spectral-terrarium-04.jpeg", alt: "Spectral Terrarium image 1", width: "1200", height: "800" },
-        { src: "../Images/fine-arts/spectral-terrarium-02.jpeg", alt: "Spectral Terrarium image 2", width: "1200", height: "800" },
-        { src: "../Images/fine-arts/spectral-terrarium-06.jpeg", alt: "Spectral Terrarium image 3", width: "1200", height: "800" },
+        { src: "../Images/fine-arts/spectral-terrarium-04.webp", alt: "Spectral Terrarium image 1", width: "1200", height: "800" },
+        { src: "../Images/fine-arts/spectral-terrarium-02.webp", alt: "Spectral Terrarium image 2", width: "1200", height: "800" },
+        { src: "../Images/fine-arts/spectral-terrarium-06.webp", alt: "Spectral Terrarium image 3", width: "1200", height: "800" },
       ]
     },
     {
@@ -208,8 +208,8 @@ const PROJECTS_DATA = {
         "2024, Plasmid - Grange 5.0, Rueyres"
       ],
       images: [
-        { src: "../Images/fine-arts/Hello-01.png", alt: "Hello image 1", width: "1200", height: "800" },
-        { src: "../Images/fine-arts/Hello-02.png", alt: "Hello image 2", width: "1200", height: "800" },
+        { src: "../Images/fine-arts/Hello-01.webp", alt: "Hello image 1", width: "1200", height: "800" },
+        { src: "../Images/fine-arts/Hello-02.webp", alt: "Hello image 2", width: "1200", height: "800" },
       ]
     }
   ],
