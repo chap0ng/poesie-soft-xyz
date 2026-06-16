@@ -43,8 +43,8 @@ const PROJECTS_DATA = {
       descriptionFr: "Inspiré de la forme des rochers de montagne, Suètone se compose de trois objets de dessin, conçus pour encourager la création de motifs libres au feutre, et d'une boîte à musique générative hybride alliant bois artisanal et impression 3D. Celle-ci transforme les couleurs utilisées en partitions musicales génératives, produisant une texture sonore en perpétuelle évolution selon les nuances employées. Par l'intégration des produits Caran d'Ache, Suètone combine l'expression artistique et la création sonore dans une démarche libre et introspective du dessin. Ce projet questionne le lien entre le concret et l'imprévisible, entre les méthodes analogiques du dessin et les processus numériques, dévoilant une utilisation du design sonore génératif en faveur d'une expérience sensorielle.",
       video: "https://vimeo.com/1122178640?share=copy",  // OPTIONAL: video link
       images: [
-        { src: "../Images/Interaction/Suetone_01.png", alt: "Suetone image 1", width: "1200", height: "800" },
-        { src: "../Images/Interaction/Suetone_02.png", alt: "Suetone image 2", width: "1200", height: "800" },
+        { src: "../Images/Interaction/Suetone_01.webp", alt: "Suetone image 1", width: "1200", height: "800" },
+        { src: "../Images/Interaction/Suetone_02.webp", alt: "Suetone image 2", width: "1200", height: "800" },
       ]
     },
         {
@@ -69,12 +69,12 @@ const PROJECTS_DATA = {
       ],
       medium: "ESP32, PLA Print, Climbing Ropes",
       images: [
-        { src: "../Images/Interaction/CREATUNE_01.jpg", alt: "CREATUNE image 1", width: "1200", height: "800" },
-        { src: "../Images/Interaction/CREATUNE_02.jpg", alt: "CREATUNE image 2", width: "1200", height: "800" },
-        { src: "../Images/Interaction/CREATUNE_03.jpg", alt: "CREATUNE image 3", width: "1200", height: "800" },
-        { src: "../Images/Interaction/CREATUNE_04.jpg", alt: "CREATUNE image 4", width: "1200", height: "800" },
-        { src: "../Images/Interaction/CREATUNE_06.jpg", alt: "CREATUNE image 5", width: "1200", height: "800" },
-        { src: "../Images/Interaction/CREATUNE_07.jpg", alt: "CREATUNE image 7", width: "1200", height: "800" },
+        { src: "../Images/Interaction/CREATUNE_01.webp", alt: "CREATUNE image 1", width: "1200", height: "800" },
+        { src: "../Images/Interaction/CREATUNE_02.webp", alt: "CREATUNE image 2", width: "1200", height: "800" },
+        { src: "../Images/Interaction/CREATUNE_03.webp", alt: "CREATUNE image 3", width: "1200", height: "800" },
+        { src: "../Images/Interaction/CREATUNE_04.webp", alt: "CREATUNE image 4", width: "1200", height: "800" },
+        { src: "../Images/Interaction/CREATUNE_06.webp", alt: "CREATUNE image 5", width: "1200", height: "800" },
+        { src: "../Images/Interaction/CREATUNE_07.webp", alt: "CREATUNE image 7", width: "1200", height: "800" },
       ]
     },
     {
@@ -102,8 +102,8 @@ const PROJECTS_DATA = {
       images: [
         { src: "../Images/Interaction/Symbiosis_01.webp", alt: "SYMBIOSIS image 1", width: "1200", height: "800" },
         { src: "../Images/Interaction/Symbiosis_02.webp", alt: "SYMBIOSIS image 2", width: "1200", height: "800" },
-        { src: "../Images/Interaction/Symbiosis_03.png", alt: "SYMBIOSIS image 3", width: "1200", height: "800" },
-        { src: "../Images/Interaction/Symbiosis_04.png", alt: "SYMBIOSIS image 4", width: "1200", height: "800" },        
+        { src: "../Images/Interaction/Symbiosis_03.webp", alt: "SYMBIOSIS image 3", width: "1200", height: "800" },
+        { src: "../Images/Interaction/Symbiosis_04.webp", alt: "SYMBIOSIS image 4", width: "1200", height: "800" },        
         
       ]
     },
