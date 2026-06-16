@@ -100,8 +100,8 @@ const PROJECTS_DATA = {
         "2024: Democracy Week, Geneva"
       ],
       images: [
-        { src: "../Images/Interaction/Symbiosis_01.png", alt: "SYMBIOSIS image 1", width: "1200", height: "800" },
-        { src: "../Images/Interaction/Symbiosis_02.png", alt: "SYMBIOSIS image 2", width: "1200", height: "800" },
+        { src: "../Images/Interaction/Symbiosis_01.webp", alt: "SYMBIOSIS image 1", width: "1200", height: "800" },
+        { src: "../Images/Interaction/Symbiosis_02.webp", alt: "SYMBIOSIS image 2", width: "1200", height: "800" },
         { src: "../Images/Interaction/Symbiosis_03.png", alt: "SYMBIOSIS image 3", width: "1200", height: "800" },
         { src: "../Images/Interaction/Symbiosis_04.png", alt: "SYMBIOSIS image 4", width: "1200", height: "800" },        
         
