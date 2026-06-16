@@ -483,7 +483,7 @@
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 600px) {
   .project-modal {
     padding: 0 0 28px 0;
   }
@@ -496,7 +496,7 @@
   }
 
   .project-modal-title {
-    font-size: 1rem;
+    font-size: 1.3rem;
   }
   
   .project-modal-left,
@@ -506,15 +506,15 @@
   
   .project-modal-next-project,
   .project-modal-prev-project {
-    width: 44px;
-    height: 44px;
-    font-size: 40px;
+    width: 30px;
+    height: 30px;
+    font-size: 34px;
   }
   
   .project-modal-close {
-    width: 44px;
-    height: 44px;
-    font-size: 34px;
+    width: 30px;
+    height: 30px;
+    font-size: 28px;
     transform: translateY(4px);
   }
   
