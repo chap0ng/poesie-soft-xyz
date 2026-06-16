@@ -234,12 +234,12 @@ const PROJECTS_DATA = {
       descriptionEn: "An introspective, multiple-choice ascent that invites the viewer to seek emotional harmony at the mountain's summit. Inspired by mountain hikes, this 'hiking simulator' carries the player through landscapes of thought. During the ascent the player passes several environments where they encounter symbols that shape the journey. Regardless of the route taken, the player ultimately reaches the summit where a bench, metaphor for emotional balance, invites them to sit and watch the golden hour of dusk. The ascent is conceived to evoke Heidi's journey from town to mountain, from stress to the calm of nature. The project was created as a proposal for the Swiss Pavilion at Expo 2025 Osaka.",
       descriptionFr: "Ascension introspective et métaphorique à choix multiples invitant le·la spectateur·rice à trouver l'harmonie émotionnelle au sommet de la montagne. Inspiré par les randonnées en montagne, ce « hiking simulator » nous fait voyager dans des paysages de pensée. Au fil de l'ascension, le·la spectateur·rice traverse plusieurs environnements où il·elle est confronté·e à des symboles qui influencent le parcours. Quel que soit le chemin choisi, on parvient finalement au sommet, où un banc, métaphore d'une harmonie émotionnelle, nous invite à s'asseoir et à contempler l'heure dorée du crépuscule. L'ascension est pensée pour évoquer le parcours de Heidi, de la ville à la montagne, du stress au calme de la nature. Le projet a été réalisé comme proposition pour le Pavillon suisse à l'Exposition universelle d'Osaka 2025.",
       images: [
-        { src: "../Images/Games/T3_01.jpg", alt: "T3 19.9KM image 1", width: "1200", height: "800" },
-        { src: "../Images/Games/T3_02.jpg", alt: "T3 19.9KM image 2", width: "1200", height: "800" },
-        { src: "../Images/Games/T3_03.png", alt: "T3 19.9KM image 3", width: "1200", height: "800" },
-        { src: "../Images/Games/T3_04.png", alt: "T3 19.9KM image 4", width: "1200", height: "800" },
-        { src: "../Images/Games/T3_05.png", alt: "T3 19.9KM image 5", width: "1200", height: "800" },
-        { src: "../Images/Games/T3_06.jpg", alt: "T3 19.9KM image 6", width: "1200", height: "800" },
+        { src: "../Images/Games/T3_01.webp", alt: "T3 19.9KM image 1", width: "1200", height: "800" },
+        { src: "../Images/Games/T3_02.webp", alt: "T3 19.9KM image 2", width: "1200", height: "800" },
+        { src: "../Images/Games/T3_03.webp", alt: "T3 19.9KM image 3", width: "1200", height: "800" },
+        { src: "../Images/Games/T3_04.webp", alt: "T3 19.9KM image 4", width: "1200", height: "800" },
+        { src: "../Images/Games/T3_05.webp", alt: "T3 19.9KM image 5", width: "1200", height: "800" },
+        { src: "../Images/Games/T3_06.webp", alt: "T3 19.9KM image 6", width: "1200", height: "800" },
       ]
     },
 //2024
@@ -259,10 +259,10 @@ const PROJECTS_DATA = {
       descriptionEn: "In the heart of the Forêhead, the mage Macintox has been exercising his influence over the goblins for several millennia. He uses them for evil purposes... Your companions Int, Bool, Var, and Float have fallen into his traps. Free them using the power of Cheatmove that you alone possess. Will you be able to thwart the great magician's mazes? Save the Goblins is an AR video game using machine learning as controllers. Simply scan the different posters to reveal the puzzles to be solved. There are two ways to solve the puzzles: alone by memorizing the sequences or by asking for help from someone else. Then, the player must perform the corresponding movements in the magic box in order to free one of his companions.",
       descriptionFr: "Au cœur du Forêhead, le mage Macintox exerce son influence sur les gobelins depuis plusieurs millénaires. Il les utilise à des fins maléfiques... Vos compagnons Int, Bool, Var et Float sont tombés dans ses pièges. Libérez-les en utilisant le pouvoir du Cheatmove que vous seul possédez. Serez-vous capable de déjouer les labyrinthes du grand magicien? Save the Goblins est un jeu vidéo AR utilisant l'apprentissage automatique comme contrôleurs. Scannez simplement les différentes affiches pour révéler les énigmes à résoudre. Il y a deux façons de résoudre les énigmes: seul en mémorisant les séquences ou en demandant de l'aide à quelqu'un d'autre. Le joueur doit ensuite effectuer les mouvements correspondants dans la boîte magique pour libérer l'un de ses compagnons.",
       images: [
-        { src: "../Images/Games/Goblins_01.jpg", alt: "Save The Goblins image 1", width: "1200", height: "800" },
-        { src: "../Images/Games/Goblins_03.jpg", alt: "Save The Goblins image 3", width: "1200", height: "800" },
-        { src: "../Images/Games/Goblins_04.jpg", alt: "Save The Goblins image 4", width: "1200", height: "800" },
-        { src: "../Images/Games/Goblins_02.jpg", alt: "Save The Goblins image 2", width: "1200", height: "800" },
+        { src: "../Images/Games/Goblins_01.webp", alt: "Save The Goblins image 1", width: "1200", height: "800" },
+        { src: "../Images/Games/Goblins_03.webp", alt: "Save The Goblins image 3", width: "1200", height: "800" },
+        { src: "../Images/Games/Goblins_04.webp", alt: "Save The Goblins image 4", width: "1200", height: "800" },
+        { src: "../Images/Games/Goblins_02.webp", alt: "Save The Goblins image 2", width: "1200", height: "800" },
       ]
     },
 
@@ -282,9 +282,9 @@ const PROJECTS_DATA = {
       descriptionEn: "A 1 min puzzle game made with Playdate Pulp. The player has to find his way in order to escape a small dungeon.",
       descriptionFr: "Un jeu puzzle de 1 min réalisé avec Playdate Pulp. Le joueur doit trouver son chemin pour s'échapper d'un petit donjon.",
       images: [
-        { src: "../Images/Games/OneMinGoblin_01.png", alt: "1 min Goblins image 1", width: "1200", height: "800" },
-        { src: "../Images/Games/OneMinGoblin_02.png", alt: "1 min Goblins image 2", width: "1200", height: "800" },
-        { src: "../Images/Games/OneMinGoblin_03.png", alt: "1 min Goblins image 3", width: "1200", height: "800" },
+        { src: "../Images/Games/OneMinGoblin_01.webp", alt: "1 min Goblins image 1", width: "1200", height: "800" },
+        { src: "../Images/Games/OneMinGoblin_02.webp", alt: "1 min Goblins image 2", width: "1200", height: "800" },
+        { src: "../Images/Games/OneMinGoblin_03.webp", alt: "1 min Goblins image 3", width: "1200", height: "800" },
 
       ]
     },
@@ -312,10 +312,10 @@ const PROJECTS_DATA = {
       descriptionFr: "Lors de ma troisième année de Bachelor, j’ai eu l’occasion lors d’un exercice de faire la curation d’une exposition en collaboration avec les autres élèves de l’option Interaction. J’ai décidé de faire la mienne en réalité-virtuelle pour tester les possibilités et les limites de celle-ci. J’ai utilisé le logiciel « Unreal Engine 5 » et un casque « Oculus Quest 2 » pour réaliser cette exposition. J’ai nommé l’exposition « Sleep pARTy People » qui contient plusieurs scans 3D, divers objets modelés directement en 3D, des scans de dessins et peintures ainsi que plusieurs morceaux de musique qui accompagnent la balade.",
       descriptionEn: "During my third year of the Bachelor's program, I had the opportunity as part of an exercise to curate an exhibition in collaboration with the other students in the Interaction track. I decided to create mine in virtual reality to test its possibilities and limits. I used Unreal Engine 5 and an Oculus Quest 2 headset to realize this exhibition. I named the exhibition 'Sleep pARTy People', which includes several 3D scans, various objects modeled directly in 3D, scans of drawings and paintings, as well as several musical pieces that accompany the walk.",
       images: [
-        { src: "../Images/Games/SleepPartyPeople_01.png", alt: "Sleep pARTy people image 1", width: "1200", height: "800" },
-        { src: "../Images/Games/SleepPartyPeople_02.png", alt: "Sleep pARTy people image 2", width: "1200", height: "800" },
-        { src: "../Images/Games/SleepPartyPeople_03.png", alt: "Sleep pARTy people image 3", width: "1200", height: "800" },
-        { src: "../Images/Games/SleepPartyPeople_04.png", alt: "Sleep pARTy people image 4", width: "1200", height: "800" },
+        { src: "../Images/Games/SleepPartyPeople_01.webp", alt: "Sleep pARTy people image 1", width: "1200", height: "800" },
+        { src: "../Images/Games/SleepPartyPeople_02.webp", alt: "Sleep pARTy people image 2", width: "1200", height: "800" },
+        { src: "../Images/Games/SleepPartyPeople_03.webp", alt: "Sleep pARTy people image 3", width: "1200", height: "800" },
+        { src: "../Images/Games/SleepPartyPeople_04.webp", alt: "Sleep pARTy people image 4", width: "1200", height: "800" },
       ]
     }
   ],  
