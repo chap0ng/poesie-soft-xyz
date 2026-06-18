@@ -89,7 +89,7 @@ const PROJECTS_DATA = {
         { name: "Sarah Meylan", url: "https://sarahmeylan.ch//" },
         { name: "Enzo Seurre", url: "https://enzoseurre.com/" },
         { name: "Lauren Thiel", url: "https://thiel.page/" },
-        { name: "Naomi Bliadriu", url: "https://www.instagram.com/nao_bldr/" }
+        { name: "Naomi Blidariu", url: "https://www.instagram.com/nao_bldr/" }
       ],
       tags: "Speculative Design, Object Design, Exhibition, Unity, Generative, Installation",
       descriptionEn: "Symbiosis imagines Switzerland in 2050, where citizens have left cities to form eco-villages. At the heart of each community sits a ‘Land Mayor’, a symbiotic artificial intelligence that combines citizen contributions with mycorrhizal networks. It generates local micro-policies tailored to the climatic challenges surrounding each village. The installation questions the role of AI in governance and explores how it could foster new forms of coexistence. Visitors are invited to vote via the installation's touchscreens on various political proposals from this speculative universe, collectively shaping a narrative of participatory democracy between humans, nature, and technology.",
